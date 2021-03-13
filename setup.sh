@@ -25,19 +25,20 @@ declare -a commands=(
 
     # Vim
     "ln -s $HOME/.dotfiles/vim/.vimrc $HOME/.vimrc"
+    "ln -s #HOME/.dotfiles/vim/.vim_runtime $HOME/.vim_runtime"
 
     # FzF
     "sh $HOME/.dotfiles/.fzf/install"
     "ln -s $HOME/.dotfiles/.fzf $HOME/.fzf"
 
     "source $HOME/.zshrc"
-        
+
 )
 
 for (( i = 0; i < ${#commands[@]} ; i++ )); do
     printf "\n--> Running: %s <-- \n" "${commands[$i]}"
 
-    
+
     if ${commands[$i]}; then
         echo OK
     else
