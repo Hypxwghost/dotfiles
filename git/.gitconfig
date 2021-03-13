@@ -1,0 +1,20 @@
+[user]
+	name = Hypxwghost
+	email = 60857997+Hypxwghost@users.noreply.github.com
+[include]
+	path = /home/ghoste/.gitconfig.local
+[dotfiles]
+	managed = true
+	lastupdate = 202103061600
+[credential]
+	helper = cache
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = "code --wait "
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
+[core]
+	editor = vim
