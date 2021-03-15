@@ -28,7 +28,7 @@ declare -a commands=(
     "ln -s $HOME/.dotfiles/vim/.vim_runtime $HOME/.vim_runtime"
 
     # FzF
-    "sh $HOME/.dotfiles/.fzf/install"
+    "bash $HOME/.dotfiles/.fzf/install"
     "ln -s $HOME/.dotfiles/.fzf $HOME/.fzf"
 
     "source $HOME/.zshrc"
