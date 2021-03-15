@@ -4,4 +4,4 @@
 .oh-my-zsh/* linguist-vendored
 .vscode/* linguist-vendored
 .themes/* linguist-vendored
-vim/.vim_runtime/* linguistic-vendored
+vim/* linguistic-vendored
