@@ -70,7 +70,7 @@ keys = [
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack"),
-    Key([mod], "Return", lazy.spawn("alacritty"), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn("tilix"), desc="Launch terminal"),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
@@ -99,6 +99,14 @@ for i in groups:
         #     desc="move focused window to group {}".format(i.name)),
     ])
 
+""" layout_theme = {
+    "border_width": 2,
+    "margin": 8,
+    "border_focus": "e1acff",
+    "border_normal": "1D2330"
+} """
+
+
 layouts = [
     layout.Columns(border_focus_stack='#d75f5f'),
     layout.Max(),
@@ -110,7 +118,19 @@ layouts = [
      layout.MonadWide(),
     # layout.RatioTile(),
      layout.Tile(),
-     layout.TreeTab(),
+     layout.TreeTab(
+         fontsize = 10,
+         sections = ["FIRST", "SECOND"],
+         section_fontsize = 11,
+         bg_color = "141414",
+         active_bg = "ff006a",
+         active_fg = "000000",
+         inactive_bg = "7d0034",
+         inactive_fg = "000000",
+         padding_y = 5,
+         section_top = 10,
+         panel_width = 300
+         ),
     # layout.VerticalTile(),
      layout.Zoomy(),
 ]
@@ -126,10 +146,10 @@ screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.CurrentLayout(foreground="#42f5ec"),
-                widget.GroupBox(active="#429cf5"),
-                widget.Prompt(foreground="#6f42f5"),
-                widget.WindowName(foreground="#a442f5"),
+                widget.CurrentLayout(foreground="#42f590"),
+                widget.GroupBox(active="#42f5ec"),
+                widget.Prompt(foreground="#429cf5"),
+                widget.WindowName(foreground="#6f42f5"),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ff0000"),
@@ -137,10 +157,16 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(),
+                widget.Sep(padding=10, foreground="#525252"),
+                widget.Net(interface="enp3s0", foreground="#a442f5"),
+                widget.Sep(padding=5, foreground="#525252"),
                 widget.TextBox("Ghoste's config", name="Ghost", foreground="#e342f5"),
+                widget.Sep(padding=5, foreground="#525252"),
                 widget.TextBox("Press r to spawn", foreground="#f542bf"),
+                widget.Sep(padding=5, foreground="#525252"),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p', foreground="#f54281"),
-                widget.QuickExit(foreground="#f54242"),
+                widget.Sep(padding=5, foreground="#525252"),
+                widget.QuickExit(foreground="#f54242", padding=7),
             ],
             24,
         ),
