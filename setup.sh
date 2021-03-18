@@ -31,6 +31,9 @@ declare -a commands=(
     "bash $HOME/.dotfiles/.fzf/install"
     "ln -s $HOME/.dotfiles/.fzf $HOME/.fzf"
 
+    # Qtile
+    "ln -s $HOME/.dotfiles/qtile $HOME/.config/qtile"
+
     "source $HOME/.zshrc"
 
 )
