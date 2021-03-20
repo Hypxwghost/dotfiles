@@ -1,6 +1,6 @@
 .icons/* linguist-vendored
 .fonts/* linguist-vendored
 .fzf/* linguist-vendored
-vim/.oh-my-zsh/* linguist-vendored
+zsh/.oh-my-zsh/* linguist-vendored
 .themes/* linguist-vendored
 vim/* linguistic-vendored
