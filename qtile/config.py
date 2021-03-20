@@ -1,30 +1,8 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-
 from typing import List  # noqa: F401
+
+from colour import Color
+
+from random import randint, choice
 
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
@@ -33,6 +11,8 @@ from libqtile.utils import guess_terminal
 
 mod = "mod4"
 terminal = guess_terminal()
+
+# ------------------------------> Keys <------------------------------
 
 keys = [
     # Switch between windows
@@ -80,7 +60,26 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
+
+    # Special keys
+
+    ## Volume
+    Key(
+        [], "XF86AudioRaiseVolume",
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%")
+    ),
+    Key(
+        [], "XF86AudioLowerVolume",
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%")
+    ),
+    Key(
+        [], "XF86AudioMute",
+        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")
+    ),
+
 ]
+
+# ------------------------------> Groups <------------------------------
 
 groups = [Group(i) for i in "123456789"]
 
@@ -99,25 +98,56 @@ for i in groups:
         #     desc="move focused window to group {}".format(i.name)),
     ])
 
-""" layout_theme = {
-    "border_width": 2,
-    "margin": 8,
-    "border_focus": "e1acff",
-    "border_normal": "1D2330"
-} """
+# ------------------------------> Layouts <------------------------------
 
+# Gets Random color
+color_list = ["red", "blue"]
+color = Color(choice(color_list))
+
+# Creates color list range
+colors = list(color.range_to(Color("magenta"), 100))
+clean_colors = list(map(lambda x: x.hex, colors)) # Filter "trash" out of colors,and transform values into HEX
+
+# Removes color with less than 6 char Ex: #xxxx or #xxx
+for color in clean_colors:
+    if len(color) < 6:
+        clean_colors.remove(color)
+
+# Random Number -1,except 0
+randNum = randint(0, len(clean_colors))
+if randNum == 0:
+    pass
+else:
+    randNum -= 1
+
+print('num', randNum, "len", len(clean_colors),"choice", color) # debug shit
 
 layouts = [
-    layout.Columns(border_focus_stack='#d75f5f'),
+    layout.Columns(
+        border_focus_stack='#d75f5f',
+        border_focus=clean_colors[randNum]
+        ),
     layout.Max(),
-    # Try more layouts by unleashing below layouts.
-     layout.Stack(num_stacks=2),
-     layout.Bsp(),
-     layout.Matrix(),
-     layout.MonadTall(),
-     layout.MonadWide(),
+     layout.Stack(
+        num_stacks=2,
+            border_focus=clean_colors[randNum]
+     ),
+     layout.Bsp(
+        border_focus=clean_colors[randNum]
+     ),
+     layout.Matrix(
+        border_focus=clean_colors[randNum]
+     ),
+     layout.MonadTall(
+        border_focus=clean_colors[randNum]
+     ),
+     layout.MonadWide(
+        border_focus=clean_colors[randNum]
+     ),
     # layout.RatioTile(),
-     layout.Tile(),
+     layout.Tile(
+        border_focus=clean_colors[randNum]
+     ),
      layout.TreeTab(
          fontsize = 10,
          sections = ["FIRST", "SECOND"],
@@ -134,6 +164,8 @@ layouts = [
     # layout.VerticalTile(),
      layout.Zoomy(),
 ]
+
+# ------------------------------> Widgets <------------------------------
 
 widget_defaults = dict(
     font='sans',
@@ -204,8 +236,8 @@ focus_on_window_activation = "smart"
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
 # mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
+# this string if your java app doesn't changeColor correctly. We may as well just lie
+# and say that we're a changeColoring one by default.
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
