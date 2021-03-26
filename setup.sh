@@ -34,6 +34,7 @@ declare -a commands=(
     # Qtile
     "ln -s $HOME/.dotfiles/qtile $HOME/.config/qtile"
 
+    "ln -s $HOME/.dotfiles/.xprofile $HOME/.xprofile"
     "source $HOME/.zshrc"
 
 )

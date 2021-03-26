@@ -1,0 +1,5 @@
+#! bin/bash
+
+# Env vars
+export PATH=$PATH:$HOME/.cargo/bin:/sbin/:/usr/sbin:/bin:$HOME/.local/bin
+setxkbmap br

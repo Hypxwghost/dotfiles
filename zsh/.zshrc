@@ -26,7 +26,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(bgnotify copyfile pip react-native rust sublime ubuntu yarn zsh-syntax-highlighting zsh-interactive-cd cargo catimg npm sudo node command-not-found z git django emacs github nmap node python vscode zsh-autosuggestions fzf)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.profile
+source $HOME/.xprofile
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then

@@ -12,6 +12,7 @@ from libqtile.utils import guess_terminal
 mod = "mod4"
 terminal = guess_terminal()
 
+
 # ------------------------------> Keys <------------------------------
 
 keys = [
@@ -61,6 +62,12 @@ keys = [
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
 
+    # Spawn Rofi menu
+    Key([mod], "m", lazy.spawn("rofi -show drun"), desc="Rofi menu"),
+
+    # Print
+    Key([], "Print", lazy.spawn('kazam')),
+
     # Special keys
 
     ## Volume
@@ -81,7 +88,7 @@ keys = [
 
 # ------------------------------> Groups <------------------------------
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in "123456"]
 
 for i in groups:
     keys.extend([
@@ -127,27 +134,34 @@ layouts = [
         border_focus_stack='#d75f5f',
         border_focus=clean_colors[randNum]
         ),
+
     layout.Max(),
      layout.Stack(
         num_stacks=2,
             border_focus=clean_colors[randNum]
      ),
+
      layout.Bsp(
         border_focus=clean_colors[randNum]
      ),
+
      layout.Matrix(
         border_focus=clean_colors[randNum]
      ),
+
      layout.MonadTall(
         border_focus=clean_colors[randNum]
      ),
+
      layout.MonadWide(
         border_focus=clean_colors[randNum]
      ),
+
     # layout.RatioTile(),
      layout.Tile(
         border_focus=clean_colors[randNum]
      ),
+
      layout.TreeTab(
          fontsize = 10,
          sections = ["FIRST", "SECOND"],
@@ -161,6 +175,7 @@ layouts = [
          section_top = 10,
          panel_width = 300
          ),
+
     # layout.VerticalTile(),
      layout.Zoomy(),
 ]
@@ -172,33 +187,90 @@ widget_defaults = dict(
     fontsize=12,
     padding=3,
 )
+
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.CurrentLayout(foreground="#42f590"),
-                widget.GroupBox(active="#42f5ec"),
-                widget.Prompt(foreground="#429cf5"),
-                widget.WindowName(foreground="#6f42f5"),
+                widget.CurrentLayout(
+                    foreground="#b3f542"
+                    ),
+
+                widget.GroupBox(
+                    active="#42f590",
+                    inactive="14522f",
+                    other_current_screen_border="14522f",
+                    this_current_screen_border="14522f",
+                    margin_y=7.5,
+                    block_highlight_text_color="#5af542",
+                    borderwidth=2,
+                    disable_drag=True,
+                    highlight_method="line",
+                    highlight_color=['000000', '14522f']
+                    ),
+
+                widget.Prompt(
+                    foreground="#a6ff00"
+                    ),
+
+                widget.Spacer(),
+
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ff0000"),
                     },
+
                     name_transform=lambda name: name.upper(),
                 ),
+
                 widget.Systray(),
-                widget.Sep(padding=10, foreground="#525252"),
-                widget.Net(interface="enp3s0", foreground="#a442f5"),
-                widget.Sep(padding=5, foreground="#525252"),
-                widget.TextBox("Ghoste's config", name="Ghost", foreground="#e342f5"),
-                widget.Sep(padding=5, foreground="#525252"),
-                widget.TextBox("Press r to spawn", foreground="#f542bf"),
-                widget.Sep(padding=5, foreground="#525252"),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p', foreground="#f54281"),
-                widget.Sep(padding=5, foreground="#525252"),
-                widget.QuickExit(foreground="#f54242", padding=7),
+
+                widget.Notify(),
+
+                widget.CheckUpdates(),
+
+                widget.Sep(
+                    padding=10,
+                    foreground="#525252",
+                    ),
+
+                widget.Net(
+                    interface="enp3s0",
+                    foreground="#42f5ec",
+                    format="↓{down}  | {up}↑"
+                    ),
+
+                widget.Sep(
+                    padding=10,
+                    foreground="#525252"
+                    ),
+
+                widget.CPU(
+                    foreground="#6f42f5",
+                    format="{freq_current}GHz {load_percent}%",
+                    ),
+
+                widget.Sep(
+                    padding=5,
+                    foreground="#525252"
+                    ),
+
+                widget.Clock(
+                    format='%d %a %I:%M %p',
+                    foreground="#a442f5"
+                    ),
+
+                widget.Sep(
+                    padding=5,
+                    foreground="#525252"
+                    ),
+
+                widget.QuickExit(
+                    foreground="#f54281"
+                    ),
+
             ],
             24,
         ),
