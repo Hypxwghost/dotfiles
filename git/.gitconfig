@@ -13,7 +13,6 @@
 [mergetool "vscode"]
 	cmd = "code --wait "
 [pull]
-	ff = only
 [init]
 	defaultBranch = main
 [core]
