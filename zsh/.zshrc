@@ -7,6 +7,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.dotfiles/zsh/.oh-my-zsh"
+export EDITOR=vim
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
