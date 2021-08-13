@@ -1,0 +1,77 @@
+{
+	"name": "django",
+	"displayName": "Django",
+	"description": "Django Templates and Backend snippets",
+	"version": "1.0.2",
+	"publisher": "bigonesystems",
+	"icon": "icon.png",
+	"homepage": "https://github.com/rbtsolis/django-vscode/blob/master/README.md",
+	"license": "LICENSE",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rbtsolis/django-vscode"
+	},
+	"bugs": {
+		"url": "https://github.com/rbtsolis/django-vscode/issues",
+		"email": "roberth.solis@gmail.com"
+	},
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"keywords": [
+		"django",
+		"django templates",
+		"django syntax",
+		"django rest framework"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "django-html",
+				"aliases": [
+					"Django Template",
+					"Django HTML",
+					"django"
+				],
+				"firstLine": "{%",
+				"extensions": [
+					".html",
+					".htm"
+				],
+				"configuration": "./django-html.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "django-html",
+				"scopeName": "text.html.django",
+				"path": "./syntaxes/django-html.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "python",
+				"path": "./snippets/django-snippets.json"
+			},
+			{
+				"language": "html",
+				"path": "./snippets/django-templates.json"
+			}
+		]
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"vscode": "^0.11.0"
+	},
+	"__metadata": {
+		"id": "cc008fa0-41cb-41de-b2e2-9a8bb1208a9d",
+		"publisherId": "63b342ef-6f57-4293-bfa7-9b7b5124cbf0",
+		"publisherDisplayName": "Roberth Solís",
+		"installedTimestamp": 1628883860365
+	}
+}
