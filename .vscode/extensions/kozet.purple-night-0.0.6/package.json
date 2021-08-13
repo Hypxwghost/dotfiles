@@ -1,0 +1,33 @@
+{
+	"name": "purple-night",
+	"displayName": "Purple Night",
+	"description": "Purple theme, made for C++",
+	"publisher": "kozet",
+	"version": "0.0.6",
+	"engines": {
+		"vscode": "^1.34.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"icon": "images/purple-night.png",
+	"contributes": {
+		"themes": [
+			{
+				"label": "Purple Night",
+				"uiTheme": "vs-dark",
+				"path": "./themes/Purple Night-color-theme.json"
+			}
+		]
+	},
+	"repository": {
+		"type": "GitLab",
+		"url": "https://gitlab.com/Kyarei/vscode-purple-night"
+	},
+	"__metadata": {
+		"id": "4134fec8-8b05-44c7-ae09-50635dfb7131",
+		"publisherId": "da01de8d-81ec-423b-8bab-4aaa23494ff9",
+		"publisherDisplayName": "kozet",
+		"installedTimestamp": 1628726058525
+	}
+}

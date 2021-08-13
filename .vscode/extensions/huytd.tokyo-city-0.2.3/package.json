@@ -1,0 +1,49 @@
+{
+	"name": "tokyo-city",
+	"displayName": "Tokyo City",
+	"description": "Tokyo City theme, a mixture of City Lights and Tokyo Night",
+	"repository": "https://github.com/huytd/vscode-tokyo-city",
+	"icon": "icon.png",
+	"version": "0.2.3",
+	"publisher": "huytd",
+	"engines": {
+		"vscode": "^1.15.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Tokyo City",
+				"uiTheme": "vs-dark",
+				"path": "./themes/Tokyo City-color-theme.json"
+			},
+			{
+				"label": "Tokyo City No Italic",
+				"uiTheme": "vs-dark",
+				"path": "./themes/Tokyo City-no-italic-color-theme.json"
+			},
+			{
+				"label": "Tokyo City Darker",
+				"uiTheme": "vs-dark",
+				"path": "./themes/Tokyo City Darker-color-theme.json"
+			},
+			{
+				"label": "Tokyo City Lighter",
+				"uiTheme": "vs",
+				"path": "./themes/Tokyo City Lighter-color-theme.json"
+			}
+		]
+	},
+	"scripts": {
+		"publish": "vsce publish && ovsx publish -p $OVSX_TOKEN"
+	},
+	"license": "MIT",
+	"__metadata": {
+		"id": "2f73698f-bcb3-458d-b932-10cbb6fdaea5",
+		"publisherId": "0b66216d-5e91-4e88-96bf-1c53c0428af0",
+		"publisherDisplayName": "huytd",
+		"installedTimestamp": 1624998887632
+	}
+}

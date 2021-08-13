@@ -32,14 +32,13 @@ source $HOME/.xprofile
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nano'
 fi
 
 # Alias
 alias cat='bat'
 alias c='clear'
-alias update='doas pacman -Syu'
-alias install='doas pacman -S'
+alias update='sudo pacman -Syu'
 alias pydir='cd $HOME/Desktop/Python'
 alias py='python'
 alias rmdir='rm -Rf' 

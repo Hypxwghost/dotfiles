@@ -1,0 +1,55 @@
+{
+	"name": "sqlite-snippet",
+	"displayName": "SQLite & MySQL Snippet for Python,Flask,Django",
+	"description": "A snippet for MySQL and SQLite, to get CRUD code.",
+	"version": "2.0.1",
+	"publisher": "rohit-chouhan",
+	"icon": "icon.png",
+	"homepage": "https://rohitchouhan.com/",
+	"repository": "https://github.com/rohit-chouhan/sqlite-snippet",
+	"galleryBanner": {
+		"color": "#de0729",
+		"theme": "dark"
+	},
+	"keywords": [
+		"Snippet",
+		"mysql",
+		"django",
+		"framework",
+		"sqlite",
+		"mysql",
+		"python",
+		"connector",
+		"database",
+		"db",
+		"flask",
+		"crud",
+		"insert",
+		"update",
+		"delete",
+		"select"
+	],
+	"engines": {
+		"vscode": "^1.55.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "python",
+				"path": "./snippets/snippets.code-snippets"
+			}
+		]
+	},
+	"bugs": {
+		"email": "me@rohitchouhan.com"
+	},
+	"__metadata": {
+		"id": "ada2ce48-8f13-49cc-a161-64bb61897027",
+		"publisherId": "5d032e83-93e3-4708-be24-bb5817b61f55",
+		"publisherDisplayName": "Rohit Chouhan",
+		"installedTimestamp": 1628726449608
+	}
+}

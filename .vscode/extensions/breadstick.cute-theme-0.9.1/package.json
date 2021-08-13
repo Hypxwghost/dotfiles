@@ -1,0 +1,49 @@
+{
+	"name": "cute-theme",
+	"displayName": "Cute Theme",
+	"description": "It's a \"Cute\" color theme based on another popular IDE",
+	"version": "0.9.1",
+	"publisher": "breadStick",
+	"engines": {
+		"vscode": "^1.48.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Cute Light",
+				"uiTheme": "vs",
+				"path": "./themes/Cute-Light-color-theme.json"
+			},
+			{
+				"label": "Cute Dark",
+				"uiTheme": "vs-dark",
+				"path": "./themes/Cute-Dark-color-theme.json"
+			}
+		],
+		"grammars": [
+			{
+				"injectTo": [
+					"source.cpp"
+				],
+				"scopeName": "doxygen.cpp.injection",
+				"path": "./syntaxes/doxygen-cpp.json"
+			},
+			{
+				"injectTo": [
+					"source.c"
+				],
+				"scopeName": "doxygen.c.injection",
+				"path": "./syntaxes/doxygen-c.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "c6eaefe5-7125-4c68-9e51-0322c611919a",
+		"publisherId": "ef8da3c2-3fd2-434a-b5bb-b8da1760fce5",
+		"publisherDisplayName": "breadStick",
+		"installedTimestamp": 1624999338293
+	}
+}

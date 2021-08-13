@@ -1,0 +1,33 @@
+{
+	"name": "bash-extension-pack",
+	"displayName": "BASH Extension Pack",
+	"description": "BASH Extension Pack",
+	"version": "0.0.4",
+	"icon": "icon.png",
+	"publisher": "lizebang",
+	"repository": {
+		"type": "git",
+		"url": "https://gitee.com/banggua/bash-extension-pack"
+	},
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.42.0"
+	},
+	"categories": [
+		"Extension Packs"
+	],
+	"extensionPack": [
+		"foxundermoon.shell-format",
+		"mads-hartmann.bash-ide-vscode",
+		"ms-vscode.powershell",
+		"remisa.shellman",
+		"rogalmic.bash-debug",
+		"rpinski.shebang-snippets",
+		"timonwong.shellcheck"
+	],
+	"__metadata": {
+		"id": "c74238a4-5bca-4144-b30e-2ade8c2507c7",
+		"publisherId": "4c1b604a-b48c-408f-8bf0-febff7b85b8d",
+		"publisherDisplayName": "lizebang"
+	}
+}

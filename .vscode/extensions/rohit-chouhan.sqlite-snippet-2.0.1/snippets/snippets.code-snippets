@@ -1,0 +1,99 @@
+{
+	"Import sqlite3":{
+		"prefix": ["sl-import"],
+		"body": [
+			"import sqlite3"
+		]
+	},
+	"Import mysql.connector  ":{
+		"prefix": ["sql-import"],
+		"body": [
+			"import mysql.connector"
+		]
+	},
+	"Create sqlite Database":{
+		"prefix": ["sl-createConnection","sl-createDb"],
+		"body": [
+			"conn = sqlite3.connect(\"${1:name}.db\")"
+		]
+	},
+	"Create MySQL connection":{
+		"prefix": ["sql-createConnection"],
+		"body": [
+			"conn = mysql.connector.connect(host = \"${1:host_name}\", user = \"${2:host_username}\",passwd = \"${3:host_password}\")"
+		]
+	},
+	"Create MySQL Database connection":{
+		"prefix": ["sql-createDBConnection"],
+		"body": [
+			"conn = mysql.connector.connect(host = \"${1:host_name}\", user = \"${2:host_username}\",passwd = \"${3:host_password}\",database = \"${4:database}\")"
+		]
+	},
+	"sqlite execute":{
+		"prefix": ["sl-createTb"],
+		"body": [
+			"c = conn.cursor()",
+			"c.execute(\"${1:sql_query}\")"
+		]
+	},
+	"sqlite Insert":{
+		"prefix": ["sl-insert"],
+		"body": [
+			"c = conn.cursor()",
+			"c.execute(\"INSERT INTO ${1:table} (${2:column}) VALUES ('${3:value}')\")",
+			"conn.commit()"
+		]
+	},
+	"sqlite Update All":{
+		"prefix": ["sl-updateAll"],
+		"body": [
+			"c = conn.cursor()",
+			"c.execute(\"UPDATE ${1:table} SET ${2:column}='${3:value}'\")",
+			"conn.commit()"
+		]
+	},
+	"sqlite Update Where":{
+		"prefix": ["sl-update"],
+		"body": [
+			"c = conn.cursor()",
+			"c.execute(\"UPDATE ${1:table} SET ${2:column}='${3:value}' WHERE ${4:column}='${5:value}'\")",
+			"conn.commit()"
+		]
+	},
+	"sqlite Delete All":{
+		"prefix": ["sl-deleteAll"],
+		"body": [
+			"c = conn.cursor()",
+			"c.execute(\"DELETE FROM ${1:table}\")",
+			"conn.commit()"
+		]
+	},
+	"sqlite Delete Where":{
+		"prefix": ["sl-delete"],
+		"body": [
+			"c = conn.cursor()",
+			"c.execute(\"DELETE FROM ${1:table} WHERE ${2:column}='${3:value}'\")",
+			"conn.commit()"
+		]
+	},
+	"sqlite Select":{
+		"prefix": ["sl-select"],
+		"body": [
+			"c = conn.cursor()",
+			"c.execute(\"SELECT * FROM ${1:table} WHERE ${2:column}='${3:value}'\")",
+			"rows = c.${4|fetchall(),fetchone()|}",
+			"for row in rows:",
+			"\tprint(row)"
+		]
+	},
+	"sqlite Select All":{
+		"prefix": ["sl-selectAll"],
+		"body": [
+			"c = conn.cursor()",
+			"c.execute(\"SELECT * FROM ${1:table}'\")",
+			"rows = c.fetchall()",
+			"for row in rows:",
+			"\tprint(row)"
+		]
+	},
+}

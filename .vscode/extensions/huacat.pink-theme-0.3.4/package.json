@@ -1,0 +1,40 @@
+{
+	"name": "pink-theme",
+	"displayName": "Huacat Pink Theme",
+	"description": "A cool pink theme for VScode.",
+	"publisher": "huacat",
+	"version": "0.3.4",
+	"engines": {
+		"vscode": "^1.33.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"keywords": [
+		"theme",
+		"light theme",
+		"pink",
+		"pink theme",
+		"huacat pink theme"
+	],
+	"icon": "logo.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/huacat1017/huacat.pink-theme"
+	},
+	"contributes": {
+		"themes": [
+			{
+				"label": "Huacat Pink Theme",
+				"uiTheme": "vs",
+				"path": "./themes/pink-theme-color-theme.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "e8993529-08f5-421e-8f2f-e0e18dba48d0",
+		"publisherId": "2dc26a81-b813-40b4-8a46-218178ece489",
+		"publisherDisplayName": "huacat",
+		"installedTimestamp": 1624999852797
+	}
+}
