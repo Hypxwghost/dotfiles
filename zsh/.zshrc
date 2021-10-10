@@ -28,6 +28,8 @@ plugins=(bgnotify copyfile pip react-native rust sublime ubuntu yarn zsh-syntax-
 source $ZSH/oh-my-zsh.sh
 source $HOME/.xprofile
 
+eval $(ssh-agent)
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
